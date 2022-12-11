@@ -40,7 +40,7 @@ rwd.addEventListener('click', mediaBackward);
 fwd.addEventListener('click', mediaForward);
 
 let intervalFwd;
-let intervalBwd;
+let intervalRwd;
 
 function mediaBackward() {
     clearInterval(intervalFwd);
