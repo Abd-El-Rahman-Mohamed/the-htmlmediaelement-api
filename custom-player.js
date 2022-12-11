@@ -8,7 +8,7 @@ const fwd = document.querySelector('.fwd');
 
 const timeWrapper = document.querySelector('.timer');
 const timer = document.querySelector('.timer span');
-const timeBar = document.querySelector('.timer div');
+const timerBar = document.querySelector('.timer div');
 
 media.removeAttribute('controls');
 controls.style.visibilty = 'visible';
@@ -84,8 +84,8 @@ function windBackward() {
 
 function windForward() {
     if (media.currentTime >= media.duration - 3) {
-        fwd.classList.remove('active');
-        clearInterval(intervalFwd);
+        // fwd.classList.remove('active');
+        // clearInterval(intervalFwd);
         stopMedia();
     } else {
         media.currentTime += 3;
@@ -110,5 +110,5 @@ function setTime() {
     timer.textContent = mediaTime;
 
     const barLength = timerWrapper.clientWidth * (media.currentTime/media.duration);
-    timeBar.style.width = `${barLength}px`;
+    timerBar.style.width = `${barLength}px`;
 }
