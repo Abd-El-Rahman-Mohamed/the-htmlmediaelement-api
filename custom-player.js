@@ -6,7 +6,7 @@ const stop = document.querySelector('.stop');
 const rwd = document.querySelector('.rwd');
 const fwd = document.querySelector('.fwd');
 
-const timeWrapper = document.querySelector('.timer');
+const timerWrapper = document.querySelector('.timer');
 const timer = document.querySelector('.timer span');
 const timerBar = document.querySelector('.timer div');
 
@@ -26,7 +26,7 @@ function playPauseMedia() {
     clearInterval(intervalRwd);
     clearInterval(intervalFwd);
     if (media.paused) {
-        play.setAttribute('data-icon','S');
+        play.setAttribute('data-icon','u');
         media.play();
     } else {
         play.setAttribute('data-icon','P')
@@ -41,7 +41,7 @@ function stopMedia() {
     fwd.classList.remove('active');
     clearInterval(intervalRwd);
     clearInterval(intervalFwd);
-    play.setAttribute('data-icon', 'P');
+    play.setAttribute('data-icon','P');
 }
 
 let intervalFwd;
