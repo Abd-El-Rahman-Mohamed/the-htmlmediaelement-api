@@ -14,8 +14,17 @@ media.removeAttribute('controls');
 controls.style.visibilty = 'visible';
 
 play.addEventListener('click', playPauseMedia);
+stop.addEventListener('click', stopMedia);
+media.addEventListener('ended', stopMedia);
+rwd.addEventListener('click', mediaBackward);
+fwd.addEventListener('click', mediaForward);
+media.addEventListener('timeupdate', setTime);
 
 function playPauseMedia() {
+    rwd.classList.remove('active');
+    fwd.classList.remove('active');
+    clearInterval(intervalRwd);
+    clearInterval(intervalFwd);
     if (media.paused) {
         play.setAttribute('data-icon','S');
         media.play();
@@ -25,19 +34,15 @@ function playPauseMedia() {
     }
 }
    
-stop.addEventListener('click', stopMedia);
-media.addEventListener('ended', stopMedia);
-
 function stopMedia() {
     media.pause();
     media.currentTime = 0;
-    play.setAttribute('data-icon', 'P');
     rwd.classList.remove('active');
     fwd.classList.remove('active');
+    clearInterval(intervalFwd);
+    clearInterval(intervalFwd);
+    play.setAttribute('data-icon', 'P');
 }
-
-rwd.addEventListener('click', mediaBackward);
-fwd.addEventListener('click', mediaForward);
 
 let intervalFwd;
 let intervalRwd;
@@ -84,8 +89,6 @@ function windBackward() {
 
 function windForward() {
     if (media.currentTime >= media.duration - 3) {
-        // fwd.classList.remove('active');
-        // clearInterval(intervalFwd);
         stopMedia();
     } else {
         media.currentTime += 3;
@@ -96,7 +99,6 @@ function appendTwoDigitsHour() {
     const minuteValue = minutes.toString().padStart(2, '0');
 }
 
-media.addEventListener('timeupdate', setTime);
 
 function setTime() {
     const minutes = Math.floor(media.currentTime / 60);
