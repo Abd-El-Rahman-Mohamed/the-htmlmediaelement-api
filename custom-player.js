@@ -39,7 +39,7 @@ function stopMedia() {
     media.currentTime = 0;
     rwd.classList.remove('active');
     fwd.classList.remove('active');
-    clearInterval(intervalFwd);
+    clearInterval(intervalRwd);
     clearInterval(intervalFwd);
     play.setAttribute('data-icon', 'P');
 }
