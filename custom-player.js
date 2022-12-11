@@ -17,7 +17,7 @@ play.addEventListener('click', playPauseMedia);
 
 function playPauseMedia() {
     if (media.paused) {
-        play.setAttribute('data-icon','u');
+        play.setAttribute('data-icon','S');
         media.play();
     } else {
         play.setAttribute('data-icon','P')
